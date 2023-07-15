@@ -1,34 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+
+import Layout from './components/Layout'
 
 import Home from './pages/Home'
 import About from './pages/About'
+import Vans from './pages/Vans'
+import VanDetail from './pages/VanDetail'
+
+import '../mocks/server'
 
 function App() {
   return (
     <BrowserRouter>
-      <header className="nav-bar">
-        <Link to="/"><h1>#VANLIFE</h1></Link>
-        <nav className="links">
-          <Link to="/about">About</Link>
-          <Link to="/about">Vans</Link>
-        </nav>
-      </header>
-    
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
       </Routes>
-
-      <footer>#VANLIFE</footer>
     </BrowserRouter>
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+ReactDOM
+  .createRoot(document.getElementById('root'))
+  .render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  )

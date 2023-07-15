@@ -42,7 +42,24 @@ button {
 .button-sm {
   background-color: black;
   border-radius: 10px;
+  margin-top: 0.75rem;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.mt-175 {
   margin-top: 1.75rem;
+}
+
+.button-sm > a {
+  color: white;
+}
+
+.button-clear {
+  background-color: inherit;
+  border: none;
+  color: #242424;
+  text-decoration: underline;
 }
 
 .card {
@@ -51,6 +68,7 @@ button {
   border-radius: 5px;
   padding: 2.25rem;
   margin-top: 3.5rem;
+  max-width: fit-content;
 }
 
 body {
@@ -117,8 +135,40 @@ p {
   height: 250px;
 }
 
-.about-text {
+.main {
   background-color: #f8ead0;
   margin: 0;
   padding: 3rem 1.75rem;
+}
+
+.vans-list {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.van-tile {
+  margin: 10px 0 20px;
+}
+
+.van-tile > img {
+  border-radius: 5px;
+}
+
+.van-detail > img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.simple {
+  background-color: rgb(134, 107, 16)
+}
+
+.luxury {
+  background-color: rgb(4, 121, 141);
+}
+
+.rugged {
+  background-color: rgb(9, 68, 21);
 }
