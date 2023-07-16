@@ -11,19 +11,21 @@ export default function Vans() {
       .then(data => setVans(data.vans))
   }, []);
 
-  if (!vans) return (
+  if (vans.length === 0) return (
     <h1>Loading...</h1>
   )
 
-  const vanElements = vans.map(van => (
-            <Link to={van.id} className="van-tile" key={van.id}>
-              <img src={van.imageUrl} width="200" height="200" />
-              <div className="van-info">
-                <h3>{van.name}</h3> ${van.price}<span>/day</span>
-              </div>
-              <button className={`button-sm ${van.type}`}>{van.type}</button>
-            </Link>
-          ))
+  const vanElements = vans
+    .filter(van => filter ? van.type === filter : true)
+    .map(van => (
+      <Link to={van.id} className="van-tile" key={van.id}>
+        <img src={van.imageUrl} width="200" height="200" />
+        <div className="van-info">
+          <h3>{van.name}</h3> ${van.price}<span>/day</span>
+        </div>
+        <button className={`button-sm ${van.type}`}>{van.type}</button>
+      </Link>
+    ))
 
   return (
     <div className="main">

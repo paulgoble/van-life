@@ -102,6 +102,11 @@ p {
   background-color: #f8ead0;
 }
 
+.host-nav {
+  background-color: #f8ead0;
+  padding-left: 1.75rem;
+}
+
 .links {
   display: flex;
 }
@@ -148,6 +153,17 @@ p {
   justify-content: space-around;
 }
 
+.hostvan-tile {
+  background-color: rgb(245, 245, 235);
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.hostvan-tile > img {
+  margin-right: 1rem;
+}
+
 .van-tile {
   margin: 10px 0 20px;
 }
@@ -159,6 +175,22 @@ p {
 .van-detail > img {
   width: 100%;
   overflow: hidden;
+}
+
+.van-info {
+  display: flex;
+}
+
+.van-info > div {
+  margin: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.hostvan-detail {
+  background-color: rgb(245, 245, 235);
+  padding: 1.75rem;;
 }
 
 .simple {

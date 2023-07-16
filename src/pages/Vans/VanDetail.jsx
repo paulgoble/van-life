@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 
 export default function VanDetail() {
-  const [van, setVan] = useState([]);
+  const [van, setVan] = useState(null);
   const { id } = useParams()
 
   useEffect(() => {
