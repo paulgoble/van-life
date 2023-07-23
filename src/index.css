@@ -40,6 +40,10 @@ button {
   width: calc(100% - 3.5rem);
 }
 
+.button-lg:disabled {
+  background-color: gray;
+}
+
 .button-sm {
   background-color: black;
   border-radius: 10px;
@@ -209,4 +213,25 @@ p {
 .van-type-select {
   background-color: rgb(226, 208, 174);
   color: black;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1.75rem 3rem;
+  width: calc(100% - 3.5rem);
+}
+
+.login-form > input {
+  margin: -1px 1.75rem;
+  padding: 8px;
+}
+
+.login-icon {
+  border: 2px solid #242424;
+  border-radius: 50%;
+}
+
+.login-icon:hover {
+  background-color: #ec8e35;
 }

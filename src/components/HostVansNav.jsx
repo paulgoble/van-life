@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-export default function HostVansLayout() {
+export default function HostVansNav() {
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",

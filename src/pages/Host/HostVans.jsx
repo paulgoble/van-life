@@ -1,19 +1,14 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
+
+export async function loader({ request }) {
+  await requireAuth(request);
+  return await getHostVans();
+}
 
 export default function HostVans() {
-  const [vans, setVans] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then(response => response.json())
-      .then(data => setVans(data.vans))
-  }, []);
-
-  if (vans.length === 0) return (
-    <h1>Loading...</h1>
-  )
-
+  const vans = useLoaderData();
 
   return (
     <div className="main">

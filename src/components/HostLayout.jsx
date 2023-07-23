@@ -7,6 +7,10 @@ export default function HostLayout() {
     color: "#161616"
   }
 
+  // Old way of protecting routes without a loader:
+  // const isLoggedIn = false
+  // if (!isLoggedIn) return <Navigate to="/login" /> // this doesn't work with loaders!
+
   return (
     <>
       <nav className="host-nav links">

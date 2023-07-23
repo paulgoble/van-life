@@ -1,5 +1,7 @@
 export default function Reviews() {
   return (
-    <h1>Reviews</h1>
+    <div className="main">
+      <h1>Reviews</h1>
+    </div>
   )
 }

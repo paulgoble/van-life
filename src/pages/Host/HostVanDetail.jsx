@@ -1,20 +1,15 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom"
-import HostVansLayout from "../../components/HostVanNavbar";
+import { Link, Outlet, useLoaderData } from "react-router-dom"
+import HostVansNav from "../../components/HostVansNav";
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
 
-export default function HostVanNavbar() {
-  const [van, setVan] = useState(null);
-  const { id } = useParams()
+export async function loader({ request, params }) {
+  await requireAuth(request)
+  return await getHostVans(params.id);
+}
 
-  useEffect(() => {
-    fetch(`/api/vans/${id}`)
-      .then(response => response.json())
-      .then(data => setVan(data.vans))
-  }, [id]);
-
-  if (!van) return (
-    <h1>Loading...</h1>
-  )
+export default function HostVanDetail() {
+  const van = useLoaderData();
 
   return (
     <div className="main">
@@ -31,7 +26,7 @@ export default function HostVanNavbar() {
             </div>
           </div>
         </div>
-        <HostVansLayout />
+        <HostVansNav />
         <Outlet context={{ van }}/>
       </div>
     </div>

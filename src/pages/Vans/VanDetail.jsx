@@ -1,20 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom"
+import { Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export async function loader({ params }) {
+  return await getVans(params.id);
+}
 
 export default function VanDetail() {
-  const [van, setVan] = useState(null);
-  const { id } = useParams()
-  const { state } = useLocation()
-
-  useEffect(() => {
-    fetch(`/api/vans/${id}`)
-      .then(response => response.json())
-      .then(data => setVan(data.vans))
-  }, [id]);
-
-  if (!van) return (
-    <h1>Loading...</h1> // 404 bug!
-  )
+  const van = useLoaderData();
+  const { state } = useLocation();
 
   const search = "?" + state?.search || ""
   const type = state?.search?.slice(5) || "all"
